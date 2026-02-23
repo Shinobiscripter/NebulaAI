@@ -9,14 +9,13 @@ export default async function handler(req, res) {
       headers: {
         "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
         "Content-Type": "application/json",
-        "HTTP-Referer": "nebula-ai-psi.vercel.app",
+        "HTTP-Referer": "https://your-vercel-domain.vercel.app",
         "X-Title": "NebulaHub"
       },
       body: JSON.stringify(req.body)
     });
 
     const data = await response.json();
-
     return res.status(response.status).json(data);
 
   } catch (error) {
